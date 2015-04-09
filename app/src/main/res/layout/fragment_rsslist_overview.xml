@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView android:id="@+id/label1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_margin="20dip"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Kies een categorie" />
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/categorie1"
+        android:drawableRight="@android:drawable/ic_media_play"
+        />
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/categorie2"
+        android:drawableRight="@android:drawable/ic_media_play"
+        android:onClick=""
+        />
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Categorie 3"
+        android:drawableRight="@android:drawable/ic_media_play"
+        />
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Categorie 4"
+        android:drawableRight="@android:drawable/ic_media_play"
+        />
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Categorie 5"
+        android:drawableRight="@android:drawable/ic_media_play"
+        />
+
+</LinearLayout> 

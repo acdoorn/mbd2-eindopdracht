@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Eet.nu Android</string>
+
+    <string name="action_settings">Settings</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="categorie1">Categorie 1</string>
+    <string name="categorie2">Categorie 2</string>
+    <string name="settings">Instellingen</string>
+    <string name="red_string">Red</string>
+    <string name="green_string">Green</string>
+    <string name="yellow_string">Yellow</string>
+    <string name="blue_string">Blue</string>
+    <string name="title_activity_menu">MenuActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
