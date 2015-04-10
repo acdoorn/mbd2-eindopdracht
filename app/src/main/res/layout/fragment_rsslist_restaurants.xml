@@ -10,55 +10,15 @@
         android:layout_gravity="center_horizontal|center_vertical"
         android:layout_margin="20dip"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Restaurants" />
+        android:text="Restaurants"
+        android:focusable="false" />
     <View
         android:layout_width="fill_parent"
         android:layout_height="1dp"
-        android:background="@android:color/darker_gray"/>
-    <Button
-        android:id="@+id/button6"
+        android:background="@android:color/darker_gray"
+        android:focusable="false"/>
+    <ListView
+        android:id="@android:id/list"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|center_vertical"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Restaurant 1"
-        android:drawableRight="@android:drawable/ic_media_play"
-        />
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|center_vertical"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Restaurant 2"
-        android:drawableRight="@android:drawable/ic_media_play"
-        />
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|center_vertical"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Restaurant 3"
-        android:drawableRight="@android:drawable/ic_media_play"
-        />
-    <Button
-        android:id="@+id/button9"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|center_vertical"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Restaurant 4"
-        android:drawableRight="@android:drawable/ic_media_play"
-        />
-    <Button
-        android:id="@+id/button10"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|center_vertical"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Restaurant 5"
-        android:drawableRight="@android:drawable/ic_media_play"
-        />
-
+        android:layout_height="wrap_content"/>
 </LinearLayout>
