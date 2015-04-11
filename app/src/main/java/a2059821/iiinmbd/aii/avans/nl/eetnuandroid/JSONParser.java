@@ -6,10 +6,6 @@ package a2059821.iiinmbd.aii.avans.nl.eetnuandroid;
 
 import android.os.AsyncTask;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,16 +13,17 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Iterator;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class JSONParser extends AsyncTask<String, Void, String> {
 
     private MyListFragment.OnTaskCompleted listener;
+    private RestaurantsFragment.OnTaskCompleted listener2;
 
     public JSONParser(MyListFragment.OnTaskCompleted listener) {
         this.listener=listener;
+    }
+    public JSONParser(RestaurantsFragment.OnTaskCompleted listener) {
+        this.listener2=listener;
     }
 
     private static String convertStreamToString(InputStream is) {
@@ -87,7 +84,12 @@ public class JSONParser extends AsyncTask<String, Void, String> {
     }
     @Override
     protected void onPostExecute(String jsonString) {
-        listener.onTaskCompleted();
+        if(listener != null) {
+            listener.onTaskCompleted(jsonString);
+        }
+        else if(listener2 != null) {
+            listener2.onTaskCompleted(jsonString);
+        }
     }
 
 

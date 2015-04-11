@@ -1,7 +1,7 @@
 package a2059821.iiinmbd.aii.avans.nl.eetnuandroid;
 
 import android.app.Activity;
-import android.app.Fragment;
+import android.app.ListFragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-public class MyListFragment extends Fragment {
+public class MyListFragment extends ListFragment {
 
     private OnItemSelectedListener listener;
     private OnTaskCompleted listener2;
@@ -29,11 +29,11 @@ public class MyListFragment extends Fragment {
     }
 
     public interface OnItemSelectedListener {
-        public void onRssItemSelected();
+        void onRssItemSelected(String selectedItem);
     }
 
     public interface OnTaskCompleted{
-        void onTaskCompleted();
+        void onTaskCompleted(String jsonString);
     }
 
 
@@ -47,17 +47,6 @@ public class MyListFragment extends Fragment {
             throw new ClassCastException(activity.toString()
                     + " must implement MyListFragment.OnItemSelectedListener OR MyListFragment.OnTaskCompleted");
         }
-    }
-
-
-    // May also be triggered from the Activity
-    public void updateDetail() {
-        listener.onRssItemSelected();
-    }
-
-
-    public void updateList(String jsonString) {
-
     }
 
 }

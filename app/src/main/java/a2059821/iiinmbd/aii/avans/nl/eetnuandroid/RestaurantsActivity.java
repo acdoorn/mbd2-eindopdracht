@@ -4,14 +4,26 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class RestaurantsActivity extends ActionBarActivity implements
-        RestaurantsFragment.OnItemSelectedListener {
+        RestaurantsFragment.OnItemSelectedListener, RestaurantsFragment.OnTaskCompleted  {
+
+
+    // Create a List for the restaurants.
+    List<String> restaurantList = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +44,11 @@ public class RestaurantsActivity extends ActionBarActivity implements
     }
 
     @Override
-    public void onRssItemSelected() {
+    public void onRssItemSelected(String selectedItem) {
         DetailFragment fragment = (DetailFragment) getFragmentManager()
                 .findFragmentById(R.id.detailFragment);
         if (fragment != null && fragment.isInLayout()) {
+            // use data
         } else {
             Intent intent = new Intent(getApplicationContext(),
                     DetailActivity.class);
@@ -51,23 +64,60 @@ public class RestaurantsActivity extends ActionBarActivity implements
         return true;
     }
 
-
-
-
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Log the item's position and contents
         // to the console in Debug
-        MenuFragment fragment = (MenuFragment) getFragmentManager()
-                .findFragmentById(R.id.menuFragment);
-        if (fragment != null && fragment.isInLayout()) {
-        } else {
-            Intent intent = new Intent(getApplicationContext(),
-                    MenuActivity.class);
-            startActivity(intent);
+        if(item.getItemId() == R.id.menu_item_share) {
+            MenuFragment fragment = (MenuFragment) getFragmentManager()
+                    .findFragmentById(R.id.menuFragment);
+            if (fragment != null && fragment.isInLayout()) {
+            } else {
+                Intent intent = new Intent(getApplicationContext(),
+                        MenuActivity.class);
+                startActivity(intent);
 
+            }
         }
-        return true;
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onTaskCompleted(String jsonString) {
+
+        ArrayAdapter<String> adapter;
+        ListView lv = (ListView)findViewById(android.R.id.list);
+        // Create ArrayAdapter using the category list.
+        adapter = new ArrayAdapter<String>(this, R.layout.row, restaurantList);
+
+        // Add categories. If you passed a String[] instead of a List<String>
+        // into the ArrayAdapter constructor, you must not add more items.
+        // Otherwise an exception will occur.
+
+        try {
+            System.out.println(jsonString);
+            JSONObject jsonObject = new JSONObject(jsonString);
+            JSONArray json = (JSONArray) jsonObject.get("results");
+            for(Integer i = 0; i < json.length(); i++) {
+                JSONObject g = (JSONObject) json.get(i);
+                String name = (String) g.get("name");
+                adapter.add(name);
+            }
+        }
+        catch (JSONException e) {
+            System.out.println("JSONException");
+        }
+
+        // Set the ArrayAdapter as the ListView's adapter.
+        lv.setAdapter(adapter);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+                                    long arg3) {
+                System.out.println("Linking to DetailView");
+                onRssItemSelected(restaurantList.get(arg2));
+            }
+        });
+        adapter.notifyDataSetChanged();
     }
 }

@@ -4,14 +4,14 @@
     <string name="action_settings">Settings</string>
 
 <!-- TODO: Remove or change this placeholder text -->
-    <string name="categorie1">Categorie 1</string>
-    <string name="categorie2">Categorie 2</string>
     <string name="settings">Instellingen</string>
     <string name="red_string">Red</string>
     <string name="green_string">Green</string>
     <string name="yellow_string">Yellow</string>
     <string name="blue_string">Blue</string>
     <string name="title_activity_menu">MenuActivity</string>
+    <string name="saved_tag">SavedTag</string>
+    <string name="preference_file_key">a2059821.iiinmbd.aii.avans.nl.settings</string>
 
     <string name="hello_world">Hello world!</string>
 
