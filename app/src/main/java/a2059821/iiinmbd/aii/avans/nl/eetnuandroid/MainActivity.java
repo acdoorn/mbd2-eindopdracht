@@ -96,9 +96,14 @@ public class MainActivity extends ActionBarActivity implements
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
                                     long arg3) {
                 System.out.println("Linking to RestaurantsView");
-                onRssItemSelected(categoryList.get(arg2).toString());
+                onRssItemSelected(categoryList.get(arg2));
             }
         });
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onRssItemSelected(Restaurant selectedItem) {
+
     }
 }

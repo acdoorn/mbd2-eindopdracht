@@ -3,7 +3,38 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView android:text="Informatie over het restaurant" android:layout_width="wrap_content"
+    <TextView android:id="@+id/labelInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_margin="20dip"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text=""
+        android:focusable="false"/>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:focusable="false" />
+    <TextView android:id="@+id/textStreet" android:text="Geen Straat gevonden" android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+    <TextView android:id="@+id/textZipcode" android:text="Geen Postcode gevonden" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView android:id="@+id/textCity" android:text="Geen plaats gevonden" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/callButton"
 
+        android:text="Bellen"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+
+        android:background="@drawable/buttonshape"
+        android:layout_width="270dp"
+        android:layout_height="60dp"
+        android:shadowColor="#A89095"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        />
 </LinearLayout>

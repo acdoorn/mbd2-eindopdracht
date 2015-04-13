@@ -5,10 +5,10 @@
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="settings">Instellingen</string>
-    <string name="red_string">Red</string>
-    <string name="green_string">Green</string>
-    <string name="yellow_string">Yellow</string>
-    <string name="blue_string">Blue</string>
+    <string name="saved_sort">Sorteren</string>
+    <string name="rating">Beoordeling</string>
+    <string name="distance">Afstand</string>
+    <string name="sort">Sorteren op: </string>
     <string name="title_activity_menu">MenuActivity</string>
     <string name="saved_tag">SavedTag</string>
     <string name="preference_file_key">a2059821.iiinmbd.aii.avans.nl.settings</string>

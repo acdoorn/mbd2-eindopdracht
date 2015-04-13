@@ -15,8 +15,6 @@ public class RestaurantsFragment extends Fragment {
     private OnItemSelectedListener listener;
     private OnTaskCompleted listener2;
     private View view;
-    private String tag;
-    public static final String PREFS_NAME = "MyPrefsFile";
 
 
     @Override
@@ -25,6 +23,7 @@ public class RestaurantsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_rsslist_restaurants,
                 container, false);
         String tag;
+        String sortby;
         // Old method of passing tag
 //        if (savedInstanceState == null) {
 //            if(this.getActivity().getIntent().getExtras() == null) {
@@ -39,15 +38,16 @@ public class RestaurantsFragment extends Fragment {
         SharedPreferences sharedPref = getActivity().getSharedPreferences(
                 getString(R.string.preference_file_key), Context.MODE_PRIVATE);
         tag = sharedPref.getString(getString(R.string.saved_tag),"african");
+        sortby = sharedPref.getString(getString(R.string.saved_sort),"rating");
 
-        String url = "https://api.eet.nu/venues?tags="+tag;
+        String url = "https://api.eet.nu/venues?tags="+tag+"&sort_by="+sortby;
         new JSONParser(this.listener2).execute(url);
         return view;
     }
 
     public interface OnItemSelectedListener {
-        void onRssItemSelected(String selectedItem);
-    }
+        void onRssItemSelected(Restaurant selectedItem);
+}
 
     public interface OnTaskCompleted{
         void onTaskCompleted(String jsonString);
@@ -63,11 +63,6 @@ public class RestaurantsFragment extends Fragment {
             throw new ClassCastException(activity.toString()
                     + " must implement RestaurantsFragment.OnItemSelectedListener OR RestaurantsFragment.OnTaskCompleted");
         }
-    }
-
-    public void setTag(String t) {
-        this.tag = t;
-        System.out.println("tag set");
     }
 
 
